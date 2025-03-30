@@ -1,0 +1,72 @@
+[
+    {
+      "company": "CarDealer A",
+      "car_model": "Toyota Camry",
+      "date_of_sale": "2023-01-15",
+      "price": 24000,
+      "salesperson": "John Doe"
+    },
+    {
+      "company": "CarDealer A",
+      "car_model": "Honda Accord",
+      "date_of_sale": "2023-02-20",
+      "price": 26000,
+      "salesperson": "Jane Smith"
+    },
+    {
+      "company": "CarDealer A",
+      "car_model": "Ford Focus",
+      "date_of_sale": "2023-03-10",
+      "price": 22000,
+      "salesperson": "Alice Johnson"
+    },
+    {
+      "company": "CarDealer A",
+      "car_model": "Nissan Altima",
+      "date_of_sale": "2023-04-05",
+      "price": 25000,
+      "salesperson": "Bob Brown"
+    },
+    {
+      "company": "CarDealer A",
+      "car_model": "Mazda3",
+      "date_of_sale": "2023-05-12",
+      "price": 23000,
+      "salesperson": "Chris Green"
+    },
+    {
+      "company": "CarDealer A",
+      "car_model": "Subaru Impreza",
+      "date_of_sale": "2023-06-18",
+      "price": 24000,
+      "salesperson": "Dana White"
+    },
+    {
+      "company": "CarDealer A",
+      "car_model": "Hyundai Sonata",
+      "date_of_sale": "2023-07-23",
+      "price": 27000,
+      "salesperson": "Eve Black"
+    },
+    {
+      "company": "CarDealer A",
+      "car_model": "Kia Optima",
+      "date_of_sale": "2023-08-29",
+      "price": 26000,
+      "salesperson": "Frank Blue"
+    },
+    {
+      "company": "CarDealer A",
+      "car_model": "Volkswagen Passat",
+      "date_of_sale": "2023-09-30",
+      "price": 28000,
+      "salesperson": "Grace Yellow"
+    },
+    {
+      "company": "CarDealer A",
+      "car_model": "Chevrolet Malibu",
+      "date_of_sale": "2023-10-14",
+      "price": 26500,
+      "salesperson": "Hank Purple"
+    }
+  ]

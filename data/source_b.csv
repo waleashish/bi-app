@@ -1,0 +1,11 @@
+company,car_model,date_of_sale,price,region
+CarDealer B,Chevrolet Malibu,2023-01-10,23000,North
+CarDealer B,Toyota Corolla,2023-02-05,20000,North
+CarDealer B,Honda Civic,2023-03-15,21000,North
+CarDealer B,Ford Fusion,2023-04-20,22000,South
+CarDealer B,Nissan Sentra,2023-05-22,19500,South
+CarDealer B,Hyundai Elantra,2023-06-18,20500,East
+CarDealer B,Kia Forte,2023-07-08,21500,East
+CarDealer B,Volkswagen Jetta,2023-08-30,22500,West
+CarDealer B,Subaru Legacy,2023-09-12,23500,West
+CarDealer B,Mazda6,2023-10-02,24000,North

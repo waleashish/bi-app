@@ -59,9 +59,4 @@ class ApplicationControllerTest < ActionDispatch::IntegrationTest
     assert_equal 28000.0, json_object.price
     assert_equal "Grace Yellow", json_object.salesperson
   end
-
-  def parse_date(date_string)
-    date_object = Date.parse(date_string)
-    date_object.strftime("%a, %d %b %Y")
-  end
 end

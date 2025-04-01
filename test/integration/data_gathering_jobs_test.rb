@@ -6,11 +6,11 @@ class ApplicationControllerTest < ActionDispatch::IntegrationTest
     @application_controller = ApplicationController.new
     # Add a job for CSV data
     csv_file_path = "data/source_csv.csv"
-    @application_controller.add_data_gathering_job({ path: csv_file_path })
+    post add_data_gathering_job_url, params: { path: csv_file_path }
 
     # Add a job for JSON data
     json_file_path = "data/source_json.json"
-    @application_controller.add_data_gathering_job({ path: json_file_path })
+    post add_data_gathering_job_url, params: { path: json_file_path }
 
     # Start a background thread to process jobs until the queue is empty.
     size = 0
@@ -29,8 +29,7 @@ class ApplicationControllerTest < ActionDispatch::IntegrationTest
   end
 
   teardown do
-    # Wait for the polling thread to finish processing all jobs.
-    @application_controller.delete_all_native_objects
+    delete delete_all_native_objects_url
   end
 
   test "should import 10 records from CSV source" do

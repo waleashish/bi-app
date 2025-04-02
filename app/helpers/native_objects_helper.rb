@@ -18,14 +18,16 @@ module NativeObjectsHelper
             native_object.save
             # Check if the object was saved successfully
             if native_object.persisted?
-                puts "Saved: #{native_object.company}, #{native_object.car_model}, #{native_object.date_of_sale}, #{native_object.price}, #{native_object.salesperson}"
+                # Log the saved object
+                Rails.logger.info("Saved: #{native_object.company}, #{native_object.car_model}, #{native_object.date_of_sale}, #{native_object.price}, #{native_object.salesperson}")
             else
-                puts "Failed to save: #{native_object.errors.full_messages.join(", ")}"
+                # Log the error message
+                Rails.logger.error("Failed to save: #{native_object.errors.full_messages.join(", ")}")
                 return false
             end
         end
 
-        return true
+        true
     end
 
     def self.load_native_objects_data_from_csv(file_path)
@@ -40,13 +42,15 @@ module NativeObjectsHelper
             native_object.save
             # Check if the object was saved successfully
             if native_object.persisted?
-                puts "Saved: #{native_object.company}, #{native_object.car_model}, #{native_object.date_of_sale}, #{native_object.price}, #{native_object.salesperson}"
+                # Log the saved object
+                Rails.logger.info("Saved: #{native_object.company}, #{native_object.car_model}, #{native_object.date_of_sale}, #{native_object.price}")
             else
-                puts "Failed to save: #{native_object.errors.full_messages.join(", ")}"
+                # Log the error message
+                Rails.logger.error("Failed to save: #{native_object.errors.full_messages.join(", ")}")
                 return false
             end
         end
 
-        return true
+        true
     end
 end

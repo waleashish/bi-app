@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_30_214615) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_02_000224) do
+  create_table "jobs", force: :cascade do |t|
+    t.string "source"
+    t.string "source_file"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "native_objects", force: :cascade do |t|
     t.string "company"
     t.string "car_model"

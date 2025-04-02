@@ -13,11 +13,8 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :native_objects
-
   delete "/native-objects/delete-all", to: "native_objects#delete_all"
-  
   post "/jobs/add-job", to: "jobs#create"
   get "/jobs", to: "jobs#index"
   get "/jobs/:id", to: "jobs#show"
-
 end

@@ -1,18 +1,17 @@
 require "test_helper"
 require "date"
 
-class ApplicationControllerTest < ActionDispatch::IntegrationTest
+class DataGatheringJobsTest < ActionDispatch::IntegrationTest
   setup do
-    # @application_controller = ApplicationController.new
     # Add a job for CSV data
     csv_file_path = "data/source_csv.csv"
     # post add_data_gathering_job_url, params: { path: csv_file_path }
-    post "/jobs/add-job", params: { source: "csv", source_file: csv_file_path, status:"ADDED" }
+    post "/jobs/add-job", params: { source: "csv", source_file: csv_file_path, status: "ADDED" }
 
     # Add a job for JSON data
     json_file_path = "data/source_json.json"
     # post add_data_gathering_job_url, params: { path: json_file_path }
-    post "/jobs/add-job", params: { source: "json", source_file: json_file_path, status:"ADDED" }
+    post "/jobs/add-job", params: { source: "json", source_file: json_file_path, status: "ADDED" }
 
     # Start a background thread to process jobs until the queue is empty.
     size = 0

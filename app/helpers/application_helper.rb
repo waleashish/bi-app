@@ -18,10 +18,12 @@ module ApplicationHelper
 
         def process_next_in_queue
             # get the next job
-            job = @queue.pop
-            ApplicationHelper.add_to_db(job)
+            begin
+                job = @queue.pop
+                ApplicationHelper.add_to_db(job)
             rescue StandardError => e
                 Rails.logger.error("Error processing job: #{e.message}")
+            end
         end
     end
 
@@ -29,7 +31,11 @@ module ApplicationHelper
         path = job.source_path
         ext = path.split(".")[1]
 
-        @job = Job.create(ext, path, "QUEUED")
+        @job = Job.create(
+            source: ext,
+            source_file: path,
+            status: "QUEUED"
+        )
         @job.status = "IN-PROGRESS"
         errors_occured = false
         case ext

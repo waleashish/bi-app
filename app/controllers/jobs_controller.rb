@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-    before_action :set_job, only: %i[ show edit update destroy ]
+    before_action :set_job, only: %i[ show destroy ]
 
     # Get all jobs
     def index
@@ -17,13 +17,22 @@ class JobsController < ApplicationController
 
     # can map to submit button after getting all the required infor from new request
     def create
-        job_message = JobCreator::Job.new(params[:source_file])
-        ApplicationHelper::QueueProcessor.instance.add_to_queue(job)
-        @job = Job.new(job_params)
+        # job_message = JobCreator::Job.new(params[:source_file])
+        job_message = JobCreator::Job.new(
+            params[:source],
+            params[:source_file],
+            params[:status]
+        )
+        ApplicationHelper::QueueProcessor.instance.add_to_queue(job_message)
+        @job = Job.new(
+            source: params[:source],
+            source_file: params[:source_file],
+            status: params[:status]
+        )
 
         respond_to do |format|
             if @job.save
-                format.html { redirect_to @job, notice: "Job was successfully created." }
+                format.html { redirect_to jobs_path, notice: "Job was successfully created." }
                 format.json { render :show, status: :created, location: @job }
             else
                 format.html { render :new, status: :unprocessable_entity }
@@ -66,11 +75,11 @@ class JobsController < ApplicationController
     private
         # Use callbacks to share common setup or constraints between actions.
         def set_job
-            @job = Job.find(params.expect(:id))
+            @job = Job.find(params[:id])
         end
 
         # Only allow a list of trusted parameters through.
         def job_params
-            params.expect(post: [ :source, :source_file, :status ])
+            params.expect(:source, :source_file, :status)
         end
 end

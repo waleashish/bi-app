@@ -21,8 +21,11 @@ module NativeObjectsHelper
                 puts "Saved: #{native_object.company}, #{native_object.car_model}, #{native_object.date_of_sale}, #{native_object.price}, #{native_object.salesperson}"
             else
                 puts "Failed to save: #{native_object.errors.full_messages.join(", ")}"
+                return false
             end
         end
+
+        return true
     end
 
     def self.load_native_objects_data_from_csv(file_path)
@@ -40,7 +43,10 @@ module NativeObjectsHelper
                 puts "Saved: #{native_object.company}, #{native_object.car_model}, #{native_object.date_of_sale}, #{native_object.price}, #{native_object.salesperson}"
             else
                 puts "Failed to save: #{native_object.errors.full_messages.join(", ")}"
+                return false
             end
         end
+
+        return true
     end
 end

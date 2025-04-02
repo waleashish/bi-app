@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
   resources :native_objects
 
-  post "add_data_gathering_job", to: "application#add_data_gathering_job"
-  delete "delete_all_native_objects", to: "native_objects#delete_all"
+  delete "/native-objects/delete-all", to: "native_objects#delete_all"
+  
+  post "/jobs/add-job", to: "jobs#create"
+  get "/jobs", to: "jobs#index"
+  get "/jobs/:id", to: "jobs#show"
+
 end

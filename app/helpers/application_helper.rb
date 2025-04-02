@@ -29,13 +29,22 @@ module ApplicationHelper
         path = job.source_path
         ext = path.split(".")[1]
 
+        @job = Job.create(ext, path, "QUEUED")
+        @job.status = "IN-PROGRESS"
+        errors_occured = false
         case ext
         when "csv"
-            NativeObjectsHelper.load_native_objects_data_from_csv(path)
+            errors_occured = NativeObjectsHelper.load_native_objects_data_from_csv(path)
         when "json"
-            NativeObjectsHelper.load_native_objects_data_from_json(path)
+            errors_occured = NativeObjectsHelper.load_native_objects_data_from_json(path)
         else
             raise "Unsupported file extension: #{ext}"
+        end
+
+        if errors_occured
+            @job.status = "FAILED"
+        else
+            @job.status = "COMPLETED"
         end
     end
 end
